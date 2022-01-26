@@ -1,11 +1,13 @@
 pipeline {
-    agent any
-
+    agent none
     stages {
-        stage('Hello') {
+        stage('Build) {
             steps {
-                sh 'python.exe see.py'
-            }
-        }
-    }
-}
+               sh 'python -m py_compile hw2.py'
+               stash(name: 'compiled-results', includes: '*.py*')
+               }
+           }
+      }
+   }   
+           
+      
